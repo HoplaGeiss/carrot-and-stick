@@ -6,10 +6,10 @@ import { TrainerService } from '../../components/trainer/trainer.service';
   selector: 'trainer-list',
   template: `
     <div class="trainer-list">
-      <ul *ngFor="let trainer of trainers">
+      <md-card *ngFor="let trainer of trainers">
         <trainer [name]="trainer.name"></trainer>
         <trainer [sport]="trainer.sport"></trainer>
-      </ul>
+      </md-card>
     </div>
   `,
   styleUrls: ['./trainer-list.component.scss']

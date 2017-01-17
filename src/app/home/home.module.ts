@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MaterialModule } from '@angular/material';
 
 // services
 import { TrainerService } from './components/trainer/trainer.service';
@@ -17,6 +18,7 @@ import { TrainerComponent } from './components/trainer/trainer.component';
   ],
   imports: [
     CommonModule,
+    MaterialModule
   ],
   providers: [
     // add the service to our sub-module
