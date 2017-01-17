@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <header class="header"></header>
     <div class="wrapper">
-      <home></home>
+      <trainer-list></trainer-list>
     </div>
   `,
   styleUrls: ['./app.component.css']
