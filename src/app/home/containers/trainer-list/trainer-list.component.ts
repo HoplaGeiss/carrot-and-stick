@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainerService } from '../../components/trainer/trainer.service';
-
+import { TrainerService } from '../../shared/trainer.service';
 
 @Component({
   selector: 'trainer-list',
   template: `
     <div class="trainer-list">
-      <md-card *ngFor="let trainer of trainers">
+      <md-card *ngFor="let trainer of trainers | location:'name':search">
         <trainer [name]="trainer.name"></trainer>
         <trainer [sport]="trainer.sport"></trainer>
       </md-card>

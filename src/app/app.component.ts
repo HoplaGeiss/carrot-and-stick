@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <header class="header"></header>
     <div class="wrapper">
+      <search-inputs></search-inputs>
       <trainer-list></trainer-list>
     </div>
   `,
