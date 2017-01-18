@@ -1,15 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'location'
+  name: 'criteria'
 })
-export class LocationPipe implements PipeTransform {
+export class CriteriaPipe implements PipeTransform {
   transform(value, key: string, term: string): string {
     return value.filter((item) => {
       if (item.hasOwnProperty(key)) {
         if (term) {
-          let regExp = new RegExp('\\b' + term, 'gi');
-          return regExp.test(item[key]);
+          return term.indexOf(item[key]) !== -1;
+
         } else {
           return true;
         }

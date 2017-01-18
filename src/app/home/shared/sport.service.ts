@@ -8,7 +8,6 @@ export class SportService {
       'BasketBall',
       'FootBall',
       'Hockey',
-      'Skying'
     ];
   }
 }

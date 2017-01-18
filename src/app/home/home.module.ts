@@ -16,7 +16,7 @@ import { SearchInputsComponent } from './containers/search-inputs/search-inputs.
 import { TrainerComponent } from './components/trainer/trainer.component';
 
 //pipe
-import { LocationPipe } from './containers/trainer-list/location.pipe'
+import { CriteriaPipe } from './shared/criteria.pipe'
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { LocationPipe } from './containers/trainer-list/location.pipe'
     //components
     TrainerComponent,
     //pipes
-    LocationPipe
+    CriteriaPipe
   ],
   imports: [
     CommonModule,

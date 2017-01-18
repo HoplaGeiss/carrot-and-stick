@@ -7,11 +7,15 @@ export class TrainerService {
     return [
       {
         name: 'Rambo',
-        sport: 'Bear fighting'
+        sport: 'BasketBall'
       },
       {
-        name: 'Sparta',
-        sport: 'Persian fighting'
+        name: 'Leonidas',
+        sport: 'FootBall'
+      },
+      {
+        name: 'Schwarzenegger',
+        sport: 'Hockey'
       }
     ]
   }
