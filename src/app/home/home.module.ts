@@ -7,8 +7,10 @@ import {RlTagInputModule} from 'angular2-tag-input';
 // services
 import { TrainerService } from './shared/trainer.service';
 import { SportService } from './shared/sport.service';
+import { SearchedTagsService } from './shared/searched-tags.service';
 
 // containers
+import { HomeComponent } from './home.component';
 import { TrainerListComponent } from './containers/trainer-list/trainer-list.component';
 import { SearchInputsComponent } from './containers/search-inputs/search-inputs.component';
 
@@ -23,6 +25,7 @@ import { CriteriaPipe } from './shared/criteria.pipe'
     //containers
     TrainerListComponent,
     SearchInputsComponent,
+    HomeComponent,
     //components
     TrainerComponent,
     //pipes
@@ -37,12 +40,12 @@ import { CriteriaPipe } from './shared/criteria.pipe'
   providers: [
     // add the service to our sub-module
     TrainerService,
-    SportService
+    SportService,
+    SearchedTagsService
   ],
   exports: [
     // exporting so our root module can access
-    TrainerListComponent,
-    SearchInputsComponent
+    HomeComponent
   ]
 })
 export class HomeModule {}

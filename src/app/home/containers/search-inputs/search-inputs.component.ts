@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SportService } from '../../shared/sport.service';
+import { SearchedTagsService } from '../../shared/searched-tags.service';
+
 
 @Component({
   selector: 'search-inputs',
@@ -10,8 +12,9 @@ import { SportService } from '../../shared/sport.service';
         [addOnBlur]="false"
         [autocomplete]="true"
         [autocompleteItems]="sports"
-        [(ngModel)]="autocompleteTags"
-        placeholder="Add a sport">
+        [(ngModel)]="sportSearchedTags"
+        placeholder="Add a sport"
+        (ngModelChange)="onChange($event)">
       </rl-tag-input>
     </div>
   `,
@@ -19,12 +22,19 @@ import { SportService } from '../../shared/sport.service';
 })
 export class SearchInputsComponent implements OnInit{
   sports: any;
+  sportSearchedTags: string[] = [];
 
-  public autocompleteTags = [];
-
-  constructor(private sportService: SportService) {}
+  constructor(private sportService: SportService,  private searchedTagsService: SearchedTagsService) {}
 
   ngOnInit() {
     this.sports = this.sportService.getModelData();
+
+
+
   }
+
+  onChange(tags) {
+    this.searchedTagsService.sendMessage(tags);
+  }
+
 }
