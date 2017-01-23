@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
-import {RlTagInputModule} from 'angular2-tag-input';
+import { RlTagInputModule } from 'angular2-tag-input';
 
 // services
-import { TrainerService } from './shared/trainer.service';
+import { TrainerService } from '../shared/trainer.service';
 import { SportService } from './shared/sport.service';
 import { SearchedTagsService } from './shared/searched-tags.service';
 
@@ -20,7 +20,17 @@ import { TrainerComponent } from './components/trainer/trainer.component';
 //pipe
 import { CriteriaPipe } from './shared/criteria.pipe'
 
+//Routing
+import { HomeRoutingModule } from './home-routing.module';
+
 @NgModule({
+  imports: [
+    CommonModule,
+    MaterialModule,
+    FormsModule,
+    RlTagInputModule,
+    HomeRoutingModule
+  ],
   declarations: [
     //containers
     TrainerListComponent,
@@ -29,13 +39,7 @@ import { CriteriaPipe } from './shared/criteria.pipe'
     //components
     TrainerComponent,
     //pipes
-    CriteriaPipe
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FormsModule,
-    RlTagInputModule
+    CriteriaPipe,
   ],
   providers: [
     // add the service to our sub-module

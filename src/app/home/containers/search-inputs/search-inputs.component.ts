@@ -28,13 +28,10 @@ export class SearchInputsComponent implements OnInit{
 
   ngOnInit() {
     this.sports = this.sportService.getModelData();
-
-
-
   }
 
   onChange(tags) {
-    this.searchedTagsService.sendMessage(tags);
+    this.searchedTagsService.setTags(tags);
   }
 
 }

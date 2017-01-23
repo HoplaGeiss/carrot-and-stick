@@ -6,11 +6,11 @@ import { Subject } from 'rxjs/Subject';
 export class SearchedTagsService {
   private subject = new Subject<any>();
 
-  sendMessage(message: string) {
+  setTags(message: string) {
     this.subject.next(message);
   }
 
-  getMessage(): Observable<any> {
+  getTags(): Observable<any> {
     return this.subject.asObservable();
   }
 }

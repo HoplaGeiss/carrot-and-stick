@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <header class="header"></header>
     <div class="wrapper">
-      <home></home>
+      <router-outlet></router-outlet>
     </div>
   `,
   styleUrls: ['./app.component.css']
