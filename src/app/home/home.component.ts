@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { SearchedTagsService } from './shared/searched-tags.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'home',
@@ -11,10 +10,6 @@ import { SearchedTagsService } from './shared/searched-tags.service';
   `,
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent{
 
-  constructor(private searchedTagsService: SearchedTagsService) {}
-
-  ngOnInit() {
-  }
 }

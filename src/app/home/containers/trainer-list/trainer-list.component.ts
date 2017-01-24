@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from "rxjs";
-import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 import { Trainer, TrainerService } from '../../../shared/trainer.service';
 import { SearchedTagsService } from '../../shared/searched-tags.service';
@@ -12,7 +10,7 @@ import { SearchedTagsService } from '../../shared/searched-tags.service';
   template: `
     <div class="trainer-list" *ngIf="trainers">
       <md-card 
-        *ngFor="let trainer of (trainers | async) | criteria:'sport':sportSearch"
+        *ngFor="let trainer of trainers | criteria:'sport':sportSearch"
         (click)="onSelect(trainer)">
         <trainer [name]="trainer.name"></trainer>
         <trainer [sport]="trainer.sport"></trainer>
@@ -22,25 +20,23 @@ import { SearchedTagsService } from '../../shared/searched-tags.service';
   styleUrls: ['./trainer-list.component.scss']
 })
 export class TrainerListComponent implements OnInit{
-  trainers: Observable<Trainer[]>;
-  subscription: Subscription;
+  trainers: Trainer[];
   sportSearch: string[] = [];
 
   constructor(
     private trainerService: TrainerService,
     private searchedTagsService: SearchedTagsService,
-    private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit() {
 
-    this.trainers = this.route.params
-      .switchMap(() => {
-        return this.trainerService.getTrainers();
+    this.trainerService.getTrainers()
+      .subscribe(trainers => {
+        this.trainers = trainers;
       });
 
-    this.subscription = this.searchedTagsService.getTags()
+    this.searchedTagsService.getTags()
       .subscribe(tags => {
         this.sportSearch = tags.slice();
       });
