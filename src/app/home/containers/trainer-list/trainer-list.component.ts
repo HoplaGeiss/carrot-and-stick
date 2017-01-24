@@ -30,16 +30,18 @@ export class TrainerListComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-
-    this.trainerService.getTrainers()
-      .subscribe(trainers => {
-        this.trainers = trainers;
-      });
+    this.getTrainers();
 
     this.searchedTagsService.getTags()
       .subscribe(tags => {
         this.sportSearch = tags.slice();
       });
+  }
+
+  getTrainers(): void {
+    this.trainerService
+      .getTrainers()
+      .then(trainers => this.trainers = trainers);
   }
 
   onSelect(trainer) {

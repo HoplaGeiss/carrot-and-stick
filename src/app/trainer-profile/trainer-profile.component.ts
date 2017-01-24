@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import { Trainer, TrainerService }  from '../shared/trainer.service';
@@ -25,8 +25,14 @@ export class TrainerProfileComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.route.params
-      .switchMap((params: Params) => this.trainerService.getTrainer(+params['id']))
-      .subscribe((trainer: Trainer) => this.trainer = trainer);
+    this.route.params.subscribe(params => {
+      this.getTrainer(+params['id']);
+    });
+  }
+
+  getTrainer(id: number): void {
+    this.trainerService
+      .getTrainer(id)
+      .then(trainer => this.trainer = trainer);
   }
 }
