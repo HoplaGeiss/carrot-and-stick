@@ -3,10 +3,10 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'trainer',
   template: `
-    <div class="trainer">
-      <span>{{name}}</span>
-      <span>{{sport}}</span>
-    </div>
+    <md-card class="trainer">
+      <span class="name">{{name}}</span>
+      <span class="sport">{{sport}}</span>
+    </md-card>
   `,
   styleUrls: ['./trainer.component.scss']
 })

@@ -9,12 +9,12 @@ import { SearchedTagsService } from '../../shared/searched-tags.service';
   selector: 'trainer-list',
   template: `
     <div class="trainer-list" *ngIf="trainers">
-      <md-card 
-        *ngFor="let trainer of trainers | criteria:'sport':sportSearch"
-        (click)="onSelect(trainer)">
-        <trainer [name]="trainer.name"></trainer>
-        <trainer [sport]="trainer.sport"></trainer>
-      </md-card>
+      <div *ngFor="let trainer of trainers | criteria:'sport':sportSearch"
+           (click)="onSelect(trainer)">
+        <trainer [name]="trainer.name"
+                 [sport]="trainer.sport">
+        </trainer>
+      </div>
     </div>
   `,
   styleUrls: ['./trainer-list.component.scss']
