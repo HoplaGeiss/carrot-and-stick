@@ -18,7 +18,7 @@ import { SearchInputsComponent } from './containers/search-inputs/search-inputs.
 import { TrainerComponent } from './components/trainer/trainer.component';
 
 //pipe
-import { CriteriaPipe } from './shared/criteria.pipe'
+import { CriteriaPipe } from './shared/criteria.pipe';
 
 //Routing
 import { HomeRoutingModule } from './home-routing.module';

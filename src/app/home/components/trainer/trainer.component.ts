@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
+import { Trainer } from '../../../shared/trainer.service'
 
 @Component({
   selector: 'trainer',
   template: `
     <md-card class="trainer">
-      <span class="name">{{name}}</span>
-      <span class="sport">{{sport}}</span>
+      <span class="name">{{trainer.name}}</span>
+      <span class="sport">{{trainer.sport}}</span>
     </md-card>
   `,
   styleUrls: ['./trainer.component.scss']
 })
 export class TrainerComponent {
-  @Input() name: string = '';
-  @Input() sport: string = '';
+  @Input() trainer: Trainer;
 }

@@ -11,8 +11,7 @@ import { SearchedTagsService } from '../../shared/searched-tags.service';
     <div class="trainer-list" *ngIf="trainers">
       <div *ngFor="let trainer of trainers | criteria:'sport':sportSearch"
            (click)="onSelect(trainer)">
-        <trainer [name]="trainer.name"
-                 [sport]="trainer.sport">
+        <trainer [trainer]="trainer">
         </trainer>
       </div>
     </div>
